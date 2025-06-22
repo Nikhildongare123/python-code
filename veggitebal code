@@ -1,0 +1,62 @@
+import ipywidgets as widgets
+from IPython.display import display, clear_output
+
+veggies = ["बटाटा", "कांदा", "टोमॅटो", "मिरची", "फ्लॉवर", "पालक"]
+
+veggie_select = widgets.SelectMultiple(
+    options=veggies,
+    description='भाज्या:',
+    rows=6
+)
+
+qty_slider = widgets.IntSlider(
+    value=2,
+    min=1,
+    max=10,
+    step=1,
+    description='किलो:'
+)
+
+phone_box = widgets.Text(
+    value='+91',
+    description='फोन:'
+)
+
+order_button = widgets.Button(
+    description='📦 ऑर्डर तयार करा',
+    button_style='success'
+)
+
+output = widgets.Output()
+
+def create_order(b):
+    with output:
+        clear_output()
+        selected = veggie_select.value
+        qty = qty_slider.value
+        phone = phone_box.value.strip()
+        
+        if not selected:
+            print("कृपया भाजी निवडा.")
+            return
+        if not phone.startswith("+91") or len(phone) != 13:
+            print("योग्य मोबाईल नंबर द्या.")
+            return
+
+        # ✅ msg इथे define करतो
+        msg = f"नमस्कार!\nमाझी भाजी ऑर्डर:\n"
+        for item in selected:
+            msg += f"- {item} : {qty} किलो\n"
+        msg += f"\nफोन: {phone}\nधन्यवाद!"
+
+        print("✅ ऑर्डर तयार!\n")
+        print(msg)
+
+        # ✅ आता msg वापरून फाईल सेव्ह करतो
+        with open("order.txt", "w", encoding='utf-8') as f:
+            f.write(phone + "\n")
+            f.write(msg)
+
+order_button.on_click(create_order)
+
+display(veggie_select, qty_slider, phone_box, order_button, output)
