@@ -43,16 +43,9 @@ class SavingsAccount(BankAccount):
         print(f"Balance: ₹{self.get_balance()}")
         print(f"Interest Rate: {self.interest_rate}%")
 
-
-# --- Usage Example ---
 acc = SavingsAccount("1234567890", "Amit Verma", 10000, 4.5)
 acc.display_info()
 acc.deposit(5000)
 acc.withdraw(3000)
 acc.apply_interest()
-
-# Trying to access private attribute directly (not recommended)
-# print(acc.__balance)  # Will raise an error
-
-# Accessing private variable using name mangling (not recommended)
 print("Accessing private balance using name mangling:", acc._BankAccount__balance)
