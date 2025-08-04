@@ -1,0 +1,24 @@
+from datetime import datetime
+
+# Input from user
+name = input("Enter your name: ")
+birth_input = input("Enter your birth date (MM-DD-YYYY): ")
+
+# Convert birth date string to date object
+birth_date = datetime.strptime(birth_input, "%m-%d-%Y")
+
+# Get current date and year
+current_date = datetime.now()
+current_year = current_date.year
+formatted_date = current_date.strftime("%m-%d-%Y")
+
+# Calculate age
+age = current_year - birth_date.year
+
+# Check if birthday has not occurred yet this year
+if (current_date.month, current_date.day) < (birth_date.month, birth_date.day):
+    age -= 1
+
+# Output
+print(f"{name}, your age is {age}")
+print(f"Today's date is: {formatted_date}")
