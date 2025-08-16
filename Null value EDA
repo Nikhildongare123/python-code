@@ -1,0 +1,165 @@
+
+import pandas as pd
+
+
+[2]
+0s
+df = pd.read_csv("/content/train.csv")
+
+[3]
+0s
+df.head()
+
+
+[4]
+0s
+df.info()
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 1460 entries, 0 to 1459
+Data columns (total 81 columns):
+ #   Column         Non-Null Count  Dtype  
+---  ------         --------------  -----  
+ 0   Id             1460 non-null   int64  
+ 1   MSSubClass     1460 non-null   int64  
+ 2   MSZoning       1460 non-null   object 
+ 3   LotFrontage    1201 non-null   float64
+ 4   LotArea        1460 non-null   int64  
+ 5   Street         1460 non-null   object 
+ 6   Alley          91 non-null     object 
+ 7   LotShape       1460 non-null   object 
+ 8   LandContour    1460 non-null   object 
+ 9   Utilities      1460 non-null   object 
+ 10  LotConfig      1460 non-null   object 
+ 11  LandSlope      1460 non-null   object 
+ 12  Neighborhood   1460 non-null   object 
+ 13  Condition1     1460 non-null   object 
+ 14  Condition2     1460 non-null   object 
+ 15  BldgType       1460 non-null   object 
+ 16  HouseStyle     1460 non-null   object 
+ 17  OverallQual    1460 non-null   int64  
+ 18  OverallCond    1460 non-null   int64  
+ 19  YearBuilt      1460 non-null   int64  
+ 20  YearRemodAdd   1460 non-null   int64  
+ 21  RoofStyle      1460 non-null   object 
+ 22  RoofMatl       1460 non-null   object 
+ 23  Exterior1st    1460 non-null   object 
+ 24  Exterior2nd    1460 non-null   object 
+ 25  MasVnrType     588 non-null    object 
+ 26  MasVnrArea     1452 non-null   float64
+ 27  ExterQual      1460 non-null   object 
+ 28  ExterCond      1460 non-null   object 
+ 29  Foundation     1460 non-null   object 
+ 30  BsmtQual       1423 non-null   object 
+ 31  BsmtCond       1423 non-null   object 
+ 32  BsmtExposure   1422 non-null   object 
+ 33  BsmtFinType1   1423 non-null   object 
+ 34  BsmtFinSF1     1460 non-null   int64  
+ 35  BsmtFinType2   1422 non-null   object 
+ 36  BsmtFinSF2     1460 non-null   int64  
+ 37  BsmtUnfSF      1460 non-null   int64  
+ 38  TotalBsmtSF    1460 non-null   int64  
+ 39  Heating        1460 non-null   object 
+ 40  HeatingQC      1460 non-null   object 
+ 41  CentralAir     1460 non-null   object 
+ 42  Electrical     1459 non-null   object 
+ 43  1stFlrSF       1460 non-null   int64  
+ 44  2ndFlrSF       1460 non-null   int64  
+ 45  LowQualFinSF   1460 non-null   int64  
+ 46  GrLivArea      1460 non-null   int64  
+ 47  BsmtFullBath   1460 non-null   int64  
+ 48  BsmtHalfBath   1460 non-null   int64  
+ 49  FullBath       1460 non-null   int64  
+ 50  HalfBath       1460 non-null   int64  
+ 51  BedroomAbvGr   1460 non-null   int64  
+ 52  KitchenAbvGr   1460 non-null   int64  
+ 53  KitchenQual    1460 non-null   object 
+ 54  TotRmsAbvGrd   1460 non-null   int64  
+ 55  Functional     1460 non-null   object 
+ 56  Fireplaces     1460 non-null   int64  
+ 57  FireplaceQu    770 non-null    object 
+ 58  GarageType     1379 non-null   object 
+ 59  GarageYrBlt    1379 non-null   float64
+ 60  GarageFinish   1379 non-null   object 
+ 61  GarageCars     1460 non-null   int64  
+ 62  GarageArea     1460 non-null   int64  
+ 63  GarageQual     1379 non-null   object 
+ 64  GarageCond     1379 non-null   object 
+ 65  PavedDrive     1460 non-null   object 
+ 66  WoodDeckSF     1460 non-null   int64  
+ 67  OpenPorchSF    1460 non-null   int64  
+ 68  EnclosedPorch  1460 non-null   int64  
+ 69  3SsnPorch      1460 non-null   int64  
+ 70  ScreenPorch    1460 non-null   int64  
+ 71  PoolArea       1460 non-null   int64  
+ 72  PoolQC         7 non-null      object 
+ 73  Fence          281 non-null    object 
+ 74  MiscFeature    54 non-null     object 
+ 75  MiscVal        1460 non-null   int64  
+ 76  MoSold         1460 non-null   int64  
+ 77  YrSold         1460 non-null   int64  
+ 78  SaleType       1460 non-null   object 
+ 79  SaleCondition  1460 non-null   object 
+ 80  SalePrice      1460 non-null   int64  
+dtypes: float64(3), int64(35), object(43)
+memory usage: 924.0+ KB
+
+[5]
+0s
+df.columns
+Index(['Id', 'MSSubClass', 'MSZoning', 'LotFrontage', 'LotArea', 'Street',
+       'Alley', 'LotShape', 'LandContour', 'Utilities', 'LotConfig',
+       'LandSlope', 'Neighborhood', 'Condition1', 'Condition2', 'BldgType',
+       'HouseStyle', 'OverallQual', 'OverallCond', 'YearBuilt', 'YearRemodAdd',
+       'RoofStyle', 'RoofMatl', 'Exterior1st', 'Exterior2nd', 'MasVnrType',
+       'MasVnrArea', 'ExterQual', 'ExterCond', 'Foundation', 'BsmtQual',
+       'BsmtCond', 'BsmtExposure', 'BsmtFinType1', 'BsmtFinSF1',
+       'BsmtFinType2', 'BsmtFinSF2', 'BsmtUnfSF', 'TotalBsmtSF', 'Heating',
+       'HeatingQC', 'CentralAir', 'Electrical', '1stFlrSF', '2ndFlrSF',
+       'LowQualFinSF', 'GrLivArea', 'BsmtFullBath', 'BsmtHalfBath', 'FullBath',
+       'HalfBath', 'BedroomAbvGr', 'KitchenAbvGr', 'KitchenQual',
+       'TotRmsAbvGrd', 'Functional', 'Fireplaces', 'FireplaceQu', 'GarageType',
+       'GarageYrBlt', 'GarageFinish', 'GarageCars', 'GarageArea', 'GarageQual',
+       'GarageCond', 'PavedDrive', 'WoodDeckSF', 'OpenPorchSF',
+       'EnclosedPorch', '3SsnPorch', 'ScreenPorch', 'PoolArea', 'PoolQC',
+       'Fence', 'MiscFeature', 'MiscVal', 'MoSold', 'YrSold', 'SaleType',
+       'SaleCondition', 'SalePrice'],
+      dtype='object')
+
+[6]
+0s
+df.describe()
+
+
+[14]
+0s
+df.isnull()
+
+
+[13]
+0s
+df.isnull().sum()
+
+
+[10]
+0s
+df.isnull().sum()/(df.shape[0]*df.shape[1])*100
+
+
+[12]
+0s
+df.drop(columns=["LotFrontage"], inplace= True)
+
+[15]
+0s
+df.fillna(method="bfill",axis=1)
+
+
+[16]
+0s
+df.fillna(method="ffill",axis=0)
+
+Colab paid products - Cancel contracts here
+What can I help you build?
+0 / 2000
+axis: Axis | None = ..., Fill NA/NaN values using the specified method. Parameters ---------- value : scalar, dict, Series, or DataFrame &nbsp;&nbsp;&nbsp;&nbsp;Value to use to fill holes (e.g. 0), alternately a dict/Series/DataFrame of values specifying which value to use for each index (for a Series) or column (for a DataFrame). Values not in the dict/Series/DataFrame will not be filled. This value cannot be a list. method : {{'backfill', 'bfill', 'ffill', None}}, default None &nbsp;&nbsp;&nbsp;&nbsp;Method to use for filling holes in reindexed Series: * ffill: propagate last valid observation forward to next valid. * backfill / bfill: use next valid observation to fill gap. axis : {axes\_single\_arg} &nbsp;&nbsp;&nbsp;&nbsp;Axis along which to fill missing values. For `Series` this parameter is unused and defaults to 0. inplace : bool, default False &nbsp;&nbsp;&nbsp;&nbsp;If True, fill in-place. Note: this will modify any other views on this object (e.g., a no-copy slice for a column in a DataFrame). limit : int, default None &nbsp;&nbsp;&nbsp;&nbsp;If method is specified, this is the maximum number of consecutive NaN values to forward/backward fill. In other words, if there is a gap with more than this number of consecutive NaNs, it will only be partially filled. If method is not specified, this is the maximum number of entries along the entire axis where NaNs will be filled. Must be greater than 0 if not None. downcast : dict, default is None &nbsp;&nbsp;&nbsp;&nbsp;A dict of item-&gt;dtype of what to downcast if possible, or the string 'infer' which will try to downcast to an appropriate equal type (e.g. float64 to int64 if possible). Returns ------- {klass} or None &nbsp;&nbsp;&nbsp;&nbsp;Object with missing values filled or None if `inplace=True`. See Also -------- ffill : Fill values by propagating the last valid observation to next valid. bfill : Fill values by using the next valid observation to fill the gap. interpolate : Fill NaN values using interpolation. reindex : Conform object to new index. asfreq : Convert TimeSeries to specified frequency. Examples -------- ``` >>> df = pd.DataFrame([[np.nan, 2, np.nan, 0], ... [3, 4, np.nan, 1], ... [np.nan, np.nan, np.nan, np.nan], ... [np.nan, 3, np.nan, 4]], ... columns=list("ABCD")) >>> df A B C D 0 NaN 2.0 NaN 0.0 1 3.0 4.0 NaN 1.0 2 NaN NaN NaN NaN 3 NaN 3.0 NaN 4.0 ``` Replace all NaN elements with 0s. ``` >>> df.fillna(0) A B C D 0 0.0 2.0 0.0 0.0 1 3.0 4.0 0.0 1.0 2 0.0 0.0 0.0 0.0 3 0.0 3.0 0.0 4.0 ``` Replace all NaN elements in column 'A', 'B', 'C', and 'D', with 0, 1, 2, and 3 respectively. ``` >>> values = {{"A": 0, "B": 1, "C": 2, "D": 3}} >>> df.fillna(value=values) A B C D 0 0.0 2.0 2.0 0.0 1 3.0 4.0 2.0 1.0 2 0.0 1.0 2.0 3.0 3 0.0 3.0 2.0 4.0 ``` Only replace the first NaN element. ``` >>> df.fillna(value=values, limit=1) A B C D 0 0.0 2.0 2.0 0.0 1 3.0 4.0 NaN 1.0 2 NaN 1.0 NaN 3.0 3 NaN 3.0 NaN 4.0 ``` When filling using a DataFrame, replacement happens along the same column names and same indices ``` >>> df2 = pd.DataFrame(np.zeros((4, 4)), columns=list("ABCE")) >>> df.fillna(df2) A B C D 0 0.0 2.0 0.0 0.0 1 3.0 4.0 0.0 1.0 2 0.0 0.0 0.0 NaN 3 0.0 3.0 0.0 4.0 ``` Note that column D is not affected since it is not present in df2., hint
+Toggle header visibility
